@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const rotaProdutos = require('./routes/produtos.js'); // Referência da rota de produtos
+// Referência das rotas
+const rotaProdutos = require('./routes/produtos.js'); 
+const rotaExpedicao = require('./routes/expedicao.js');
 
 app.use(bodyParser.urlencoded({extended: false}));  // Aceitar apenas dados simples
 app.use(bodyParser.json()); // Aceitar apenas formato json no body
@@ -18,6 +20,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/produtos', rotaProdutos); // Chama a rota
+// Chamada das rotas
+app.use('/produtos', rotaProdutos); 
+app.use('/expedicao', rotaExpedicao);
 
 module.exports = app;
