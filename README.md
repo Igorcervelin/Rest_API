@@ -5,7 +5,7 @@ Back-end: Node.js + MySQL
 
 Inicialização do back-end
 
-    • cd back-end
+    • cd Rest_API
     • npm install
     • npm start
 
