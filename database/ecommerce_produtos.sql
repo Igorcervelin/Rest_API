@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `produtos`;
 CREATE TABLE `produtos` (
   `id_produto` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
-  `GTIN` int DEFAULT NULL,
+  `gtin` bigint DEFAULT NULL,
   `segmento` varchar(45) DEFAULT NULL,
   `grupo` varchar(45) DEFAULT NULL,
   `altura` float DEFAULT NULL,
@@ -36,9 +36,8 @@ CREATE TABLE `produtos` (
   `data_inativo` datetime DEFAULT NULL,
   `data_modif` datetime DEFAULT NULL,
   `data_criacao` datetime DEFAULT NULL,
-  `cubagem` float GENERATED ALWAYS AS (((`altura` * `largura`) * `profundidade`)) VIRTUAL,
   PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +46,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` (`id_produto`, `nome`, `GTIN`, `segmento`, `grupo`, `altura`, `largura`, `profundidade`, `peso_bru`, `peso_liq`, `data_inativo`, `data_modif`, `data_criacao`) VALUES (2,'teste_criacao',10,'teste','teste',1,2,3,4,4,'2022-01-23 19:37:42','2022-01-23 19:37:17','2022-01-23 19:33:21');
+INSERT INTO `produtos` VALUES (2,'teste_criacao',10,'teste','teste',1,2,3,4,4,'2022-01-23 19:37:42','2022-01-23 19:37:17','2022-01-23 19:33:21'),(3,'teste inativo',123,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'produto',7890000000000,'Ongrid','Inversor',2.5,2.5,2.5,1,2,NULL,NULL,'2022-01-24 21:45:26');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-24  1:45:34
+-- Dump completed on 2022-01-24 22:39:26
