@@ -9,9 +9,8 @@ router.post('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if(error){return res.status(500).send({error: error})}
         conn.query(
-            'INSERT INTO pedido (id_produto, quantidade) VALUES(?, ?),',
+            'INSERT INTO pedido (id_produto, quantidade) VALUES(?, ?)',
             [req.body.id_produto, req.body.quantidade],
-            'SELECT * from pedido',
             (error, resultado, campo) => {
                 conn.release();
 
